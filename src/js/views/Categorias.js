@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import shortid from "shortid";
+import { Link } from "react-router-dom";
 
 export const Categorias = () => {
 	//function Categorias() {
@@ -53,55 +54,79 @@ export const Categorias = () => {
 	};
 
 	return (
-		<div className="container mt-5">
-			<h1 className="text-center">Edicion de Categorias</h1>
-			<hr />
-			<div className="row">
-				<div className="col-12">
-					<h4 className="text-center">Lista de Categorias</h4>
-					<ul className="list-group">
-						{categorias.map(item => (
-							<li className="list-group-item" key={item.id}>
-								<span className="lead">{item.nombreCategoria}</span>
-								<button
-									className="btn btn-sm btn-danger float-right mx-2"
-									onClick={() => eliminarCategoria(item.id)}>
-									Eliminar
-								</button>
+		<div>
+			<div className="container mt-5">
+				<h1 className="text-center">Edicion de Categorias</h1>
+				<hr />
+				<div className="row">
+					<div className="col-12">
+						<h4 className="text-center">Lista de Categorias</h4>
+						<ul className="list-group">
+							{categorias.map(item => (
+								<li className="list-group-item" key={item.id}>
+									<span className="lead">{item.nombreCategoria}</span>
+									<button
+										className="btn btn-sm btn-danger float-right mx-2"
+										onClick={() => eliminarCategoria(item.id)}>
+										Eliminar
+									</button>
 
-								<button className="btn btn-sm btn-warning float-right" onClick={() => editar(item)}>
+									<button className="btn btn-sm btn-warning float-right" onClick={() => editar(item)}>
+										Editar
+									</button>
+								</li>
+							))}
+							<li className="list-group-item">
+								<span className="lead">Nombre de la categoria</span>
+								<button className="btn btn-sm btn-danger float-right mx-2">Eliminar</button>
+								<button className="btn btn-sm btn-warning float-right">Editar</button>
+							</li>
+						</ul>
+					</div>
+
+					<div className="col-12">
+						<h4 className="text-center">{modoEdicion ? "Editar Categoria" : "Agregar Categoria"}</h4>
+						<form onSubmit={modoEdicion ? editarCategoria : agregarCategoria}>
+							<input
+								type="text"
+								className="form-control mb-2"
+								placeholder="Ingrese Categoria"
+								onChange={e => setCategoria(e.target.value)}
+								value={categoria}
+							/>
+							{modoEdicion ? (
+								<button className="btn btn-warning btn-block" type="submit">
 									Editar
 								</button>
-							</li>
-						))}
-						<li className="list-group-item">
-							<span className="lead">Nombre de la categoria</span>
-							<button className="btn btn-sm btn-danger float-right mx-2">Eliminar</button>
-							<button className="btn btn-sm btn-warning float-right">Editar</button>
-						</li>
-					</ul>
+							) : (
+								<button className="btn btn-dark btn-block" type="submit">
+									Agregar
+								</button>
+							)}
+						</form>
+					</div>
 				</div>
-
-				<div className="col-12">
-					<h4 className="text-center">{modoEdicion ? "Editar Categoria" : "Agregar Categoria"}</h4>
-					<form onSubmit={modoEdicion ? editarCategoria : agregarCategoria}>
-						<input
-							type="text"
-							className="form-control mb-2"
-							placeholder="Ingrese Categoria"
-							onChange={e => setCategoria(e.target.value)}
-							value={categoria}
-						/>
-						{modoEdicion ? (
-							<button className="btn btn-warning btn-block" type="submit">
-								Editar
+				<br />
+				<br />
+				<br />
+			</div>
+			<div className="row">
+				<div className="col-4" />
+				<Link to="/edicion">
+					<div className="text-left mb-3">
+						<button type="button" className="btn btn-dark btn-lg">
+							Regresar
+						</button>
+					</div>
+				</Link>
+				<div className="col-4">
+					<Link to="/">
+						<div className="text-right mb-3">
+							<button type="button" className="btn btn-info btn-lg">
+								Salir
 							</button>
-						) : (
-							<button className="btn btn-dark btn-block" type="submit">
-								Agregar
-							</button>
-						)}
-					</form>
+						</div>
+					</Link>
 				</div>
 			</div>
 		</div>
