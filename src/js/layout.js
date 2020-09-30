@@ -4,7 +4,6 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
-import { Ediciondecategorias } from "./views/Ediciondecategorias";
 import { Edicion } from "./views/Edicion";
 import { Categorias } from "./views/Categorias";
 import { Single } from "./views/single";
@@ -13,7 +12,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
-import { Carousel } from "./component/carousel";
+//import { Carousel } from "./component/carousel";
 
 //create your first component
 const Layout = () => {
@@ -40,9 +39,7 @@ const Layout = () => {
 						<Route exact path="/categorias">
 							<Categorias />
 						</Route>
-						<Route exact path="/Ediciondecategorias">
-							<Ediciondecategorias />
-						</Route>
+
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
