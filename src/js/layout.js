@@ -6,6 +6,8 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Edicion } from "./views/Edicion";
 import { Categorias } from "./views/Categorias";
+import { CategoriasAdmin } from "./views/CategoriasAdmin";
+
 import { Single } from "./views/single";
 
 import injectContext from "./store/appContext";
@@ -36,6 +38,11 @@ const Layout = () => {
 						<Route exact path="/edicion">
 							<Edicion />
 						</Route>
+
+						<Route exact path="/categoriasadmin">
+							<CategoriasAdmin />
+						</Route>
+
 						<Route exact path="/categorias">
 							<Categorias />
 						</Route>
