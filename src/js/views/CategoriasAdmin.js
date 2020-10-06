@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 import shortid from "shortid";
+import "../../styles/index.scss";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-
+import Table from "react-bootstrap/Table";
+import slide from "../../img/Imagenedicioncategorias.jpg";
 export const CategoriasAdmin = () => {
 	// Creo los estados
 	const [nombre, setNombre] = useState(""); // este seria el nombre de la categoria
@@ -88,13 +90,13 @@ export const CategoriasAdmin = () => {
 				item.id === id
 					? { id: id, nombreCategoria: nombre, descripcionCategoria: descripcion, iconoCategoria: icono }
 					: item
-		); // creo que se modificaria así
+		);
 
 		setCategorias(arrayEditado);
 		setModoEdicion(false);
 		setNombre("");
 		setDescripcion("");
-		setIcono(""); // replique la linea anterior
+		setIcono("");
 		setId("");
 		//setError(null)
 	};
@@ -106,83 +108,92 @@ export const CategoriasAdmin = () => {
 			console.log("debe llenar todos los campos");
 		}
 	};
+
 	return (
-		<div>
+		<div className="categorias">
 			<div className="container mt-5">
-				<h1 className="text-center">Edicion de Categorias</h1>
+				<h1 className="text-center">Edicion de Categorías</h1>
 				<hr />
 				<div className="row">
-					<div className="col-12">
-						<h4 className="text-center">Lista de Categorias</h4>
-						<ul className="list-group">
+					<div className="col-lg-6">
+						<h4 className="my-4 text-center">Lista de Categorías</h4>
+						<Table striped bordered hover size="sm">
+							<thead>
+								<tr>
+									<th>Nombre</th>
+									<th>Descripción</th>
+									<th>Icono</th>
+									<th>Eliminar</th>
+									<th>Editar</th>
+								</tr>
+							</thead>
 							{categorias.map(item => (
-								<li className="list-group-item" key={item.id}>
-									<span className="lead">{item.nombreCategoria}</span>
-									<br />
-									<span className="lead">{item.descripcionCategoria}</span>
-									<br />
-									<span className="lead">{item.iconoCategoria}</span>
-
-									<button
-										className="btn btn-sm btn-danger float-right mx-2"
-										onClick={() => eliminarCategoria(item.id)}>
-										Eliminar
-									</button>
-
-									<button className="btn btn-sm btn-warning float-right" onClick={() => editar(item)}>
-										Editar
-									</button>
-								</li>
+								<tbody key={item.id}>
+									<tr>
+										<td>{item.nombreCategoria}</td>
+										<td>{item.descripcionCategoria}</td>
+										<td>{item.iconoCategoria}</td>
+										<td>
+											<button
+												className="btn btn-sm btn-danger float-center mx-2"
+												onClick={() => eliminarCategoria(item.id)}>
+												Eliminar
+											</button>
+										</td>
+										<td>
+											<button
+												className="btn btn-sm btn-warning float-center"
+												onClick={() => editar(item)}>
+												Editar
+											</button>
+										</td>
+									</tr>
+								</tbody>
 							))}
-							<li className="list-group-item">
-								<span className="lead">Nombre de la categoria</span>
-
-								<hr />
-								<span className="lead">Descripcion</span>
-
-								<hr />
-								<span className="lead">Icono</span>
-							</li>
-						</ul>
+						</Table>
 					</div>
 
-					<div className="col-12">
-						<h4 className="text-center">{modoEdicion ? "Editar Categoria" : "Agregar Categoria"}</h4>
-						<form onSubmit={modoEdicion ? editarCategoria : agregarCategoria}>
-							<input
-								type="text"
-								className="form-control mb-2"
-								placeholder="Ingrese nombre de la Categoria"
-								onChange={e => setNombre(e.target.value)}
-								value={nombre}
-							/>
+					<div className="col-lg-6">
+						<div className="card mt-4">
+							<img className="card-img-top img-fluid w-100" src={slide} alt="imagen edicion" />
+							<br />
+							<h4 className="text-center">{modoEdicion ? "Editar Categoria" : "Agregar Categoría"}</h4>
+							<form onSubmit={modoEdicion ? editarCategoria : agregarCategoria}>
+								<input
+									type="text"
+									className="form-control mb-2"
+									placeholder="Ingrese nombre para la Categoría"
+									onChange={e => setNombre(e.target.value)}
+									value={nombre}
+								/>
 
-							<input
-								type="text"
-								className="form-control mb-2"
-								placeholder="Ingrese una descripcion"
-								onChange={e => setDescripcion(e.target.value)}
-								value={descripcion}
-							/>
+								<input
+									type="text"
+									className="form-control mb-2"
+									placeholder="Ingrese una descripción"
+									onChange={e => setDescripcion(e.target.value)}
+									value={descripcion}
+								/>
 
-							<input
-								type="text"
-								className="form-control mb-2"
-								placeholder="Ingrese un icono para la categoria"
-								onChange={e => setIcono(e.target.value)} // tambien agregue este input
-								value={icono}
-							/>
-
-							{modoEdicion ? (
-								<button className="btn btn-warning btn-block" type="submit">
-									Editar
-								</button>
-							) : (
-								<button className="btn btn-dark btn-block" type="submit" onClick={guardarCategoria}>
-									Agregar
-								</button>
-							)}
-						</form>
+								<input
+									type="text"
+									className="form-control mb-2"
+									placeholder="Ingrese un icono para la categoría"
+									onChange={e => setIcono(e.target.value)} // tambien agregue este input
+									value={icono}
+								/>
+								<br />
+								{modoEdicion ? (
+									<button className="btn btn-warning btn-block" type="submit">
+										Editar
+									</button>
+								) : (
+									<button className="btn btn-dark btn-block" type="submit" onClick={guardarCategoria}>
+										Agregar
+									</button>
+								)}
+							</form>
+						</div>
 					</div>
 				</div>
 				<br />

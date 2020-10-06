@@ -7,41 +7,43 @@ import { Link } from "react-router-dom";
 
 export const Edicion = () => {
 	return (
-		<div className="container mt-5">
-			<h1 className="text-center">Edicion de Categorias y Productos</h1>
-			<br />
-			<br />
-			<br />
-			<div className="row">
-				<div className="col-12">
-					<Link to="/categorias">
-						<button type="button" className="btn btn-info btn-lg btn-block">
-							Categorias
-						</button>
-					</Link>
-					<br />
-					<br />
-					<button type="button" className="btn btn-info btn-lg btn-block">
-						Productos
-					</button>
-				</div>
-			</div>
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-
-			<div className="row">
-				<div className="col-8" />
-				<div className="col-4">
-					<Link to="/">
-						<div className="text-right mb-3">
-							<button type="button" className="btn btn-dark btn-lg btn-block">
-								Salir
+		<div className="edicion">
+			<div className="container mt-5">
+				<h1 className="text-center">Edicion de Categorías y Productos</h1>
+				<br />
+				<br />
+				<br />
+				<div className="row">
+					<div className="col-12">
+						<Link to="/categoriasadmin">
+							<button type="button" className="btn btn-info btn-lg btn-block">
+								Categorías
 							</button>
-						</div>
-					</Link>
+						</Link>
+						<br />
+						<br />
+						<button type="button" className="btn btn-info btn-lg btn-block">
+							Productos
+						</button>
+					</div>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+
+				<div className="row">
+					<div className="col-8" />
+					<div className="col-4">
+						<Link to="/">
+							<div className="text-right mb-3">
+								<button type="button" className="btn btn-dark btn-lg btn-block">
+									Salir
+								</button>
+							</div>
+						</Link>
+					</div>
 				</div>
 			</div>
 		</div>
