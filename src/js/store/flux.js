@@ -1,4 +1,4 @@
-const baseAPIUrl = "https://3000-cbe22b94-ffc5-4a04-83d9-27fa41f15bbe.ws-us02.gitpod.io";
+const baseAPIUrl = "https://3000-d7c0c122-528c-450c-94d4-4c60ff027d6e.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -63,10 +63,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			fetchEditarCategoria: (categorias, categoria_id) => {
-				fetch(`${baseAPIUrl}/categorias/<categoria_id>`, {
+			fetchEditarCategoria: (categoria, categoria_id) => {
+				fetch(`${baseAPIUrl}/categorias/${categoria_id}`, {
 					method: "PUT",
-					body: JSON.stringify(categorias),
+					body: JSON.stringify(categoria),
 					headers: {
 						"Content-Type": "application/json"
 					}

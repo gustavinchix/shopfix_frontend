@@ -56,19 +56,20 @@ export const CategoriasAdmin = () => {
 		//console.log(id);
 		const arrayFiltrado = categorias.filter(item => item.id !== id);
 		setCategorias(arrayFiltrado);
+		console.log(categorias);
 	};
 
 	const editar = item => {
 		console.log(item);
 		setModoEdicion(true);
-		setNombre(item.nombreCategoria);
-		setDescripcion(item.descripcionCategoria);
-		setIcono(item.iconoCategoria); // agregue este que no estaba
+		setNombre(item.nombre);
+		setDescripcion(item.descripcion);
+		setIcono(item.icono); // agregue este que no estaba
 		setId(item.id);
 	};
 
-	const editarCategoria = e => {
-		e.preventDefault();
+	const editarCategoria = async e => {
+		//e.preventDefault();
 		if (!nombre.trim()) {
 			console.log("Elemento Vacío");
 			//setError('Escriba algo por favor...')
@@ -84,15 +85,16 @@ export const CategoriasAdmin = () => {
 			console.log("Icono vacío");
 			return;
 		}
+		await actions.fetchEditarCategoria({ nombre, descripcion, icono }, id);
 
-		const arrayEditado = categorias.map(
-			item =>
-				item.id === id
-					? { id: id, nombreCategoria: nombre, descripcionCategoria: descripcion, iconoCategoria: icono }
-					: item
-		);
+		// const arrayEditado = categorias.map(
+		// 	item =>
+		// 		item.id === id
+		// 			? { id: id, nombreCategoria: nombre, descripcionCategoria: descripcion, iconoCategoria: icono }
+		// 			: item
+		// );
 
-		setCategorias(arrayEditado);
+		// setCategorias(arrayEditado);
 		setModoEdicion(false);
 		setNombre("");
 		setDescripcion("");
@@ -101,9 +103,13 @@ export const CategoriasAdmin = () => {
 		//setError(null)
 	};
 
-	const guardarCategoria = () => {
+	const guardarCategoria = async () => {
 		if (nombre.trim() != "" && descripcion.trim() != "" && icono.trim() != "") {
-			actions.fetchCrearCategoria(categorias);
+			await actions.fetchCrearCategoria({ nombre, descripcion, icono });
+			//Limpia los input para crear la proxima categoria
+			setNombre("");
+			setDescripcion("");
+			setIcono("");
 		} else {
 			console.log("debe llenar todos los campos");
 		}
@@ -127,12 +133,12 @@ export const CategoriasAdmin = () => {
 									<th>Editar</th>
 								</tr>
 							</thead>
-							{categorias.map(item => (
+							{store.categorias.map(item => (
 								<tbody key={item.id}>
 									<tr>
-										<td>{item.nombreCategoria}</td>
-										<td>{item.descripcionCategoria}</td>
-										<td>{item.iconoCategoria}</td>
+										<td>{item.nombre}</td>
+										<td>{item.descripcion}</td>
+										<td>{item.icono}</td>
 										<td>
 											<button
 												className="btn btn-sm btn-danger float-center mx-2"
@@ -184,11 +190,14 @@ export const CategoriasAdmin = () => {
 								/>
 								<br />
 								{modoEdicion ? (
-									<button className="btn btn-warning btn-block" type="submit">
+									<button
+										className="btn btn-warning btn-block"
+										type="button"
+										onClick={editarCategoria}>
 										Editar
 									</button>
 								) : (
-									<button className="btn btn-dark btn-block" type="submit" onClick={guardarCategoria}>
+									<button className="btn btn-dark btn-block" type="button" onClick={guardarCategoria}>
 										Agregar
 									</button>
 								)}
