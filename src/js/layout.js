@@ -14,6 +14,7 @@ import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { ProductosAdmin } from "./views/ProductosAdmin";
 //import { Carousel } from "./component/carousel";
 
 //create your first component
@@ -37,6 +38,10 @@ const Layout = () => {
 
 						<Route exact path="/edicion">
 							<Edicion />
+						</Route>
+
+						<Route exact path="/productosadmin">
+							<ProductosAdmin />
 						</Route>
 
 						<Route exact path="/categoriasadmin">

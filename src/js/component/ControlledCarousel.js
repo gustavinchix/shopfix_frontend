@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "../../styles/home.scss";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import slide1 from "../../img/Carouselslide1.jpg";
 import slide2 from "../../img/Carouselslide2.jpg";
 import slide3 from "../../img/Carouselslide3.jpg";
@@ -21,6 +21,10 @@ export const ControlledCarousel = () => {
 						<p>NUEVO</p>
 						<h1>Colección Hogar</h1>
 						<p>Lorem ipsum dolor sit ametmm, consectetur adipiscing elit.</p>
+
+						<Link to="/demo">
+							<button className="btn btn-danger">COMPRAR</button>
+						</Link>
 					</div>
 				</Carousel.Caption>
 			</Carousel.Item>
@@ -36,6 +40,9 @@ export const ControlledCarousel = () => {
 							<br />
 							Phasellus blandit massa enim.
 						</p>
+						<Link to="/demo">
+							<button className="btn btn-danger">COMPRAR</button>
+						</Link>
 					</div>
 				</Carousel.Caption>
 			</Carousel.Item>
@@ -47,6 +54,9 @@ export const ControlledCarousel = () => {
 						<p>NIÑOS</p>
 						<h3>Colección Verano 2020</h3>
 						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+						<Link to="/demo">
+							<button className="btn btn-danger">COMPRAR</button>
+						</Link>
 					</div>
 				</Carousel.Caption>
 			</Carousel.Item>

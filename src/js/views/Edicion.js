@@ -22,9 +22,12 @@ export const Edicion = () => {
 						</Link>
 						<br />
 						<br />
-						<button type="button" className="btn btn-info btn-lg btn-block">
-							Productos
-						</button>
+
+						<Link to="/productosadmin">
+							<button type="button" className="btn btn-info btn-lg btn-block">
+								Productos
+							</button>
+						</Link>
 					</div>
 				</div>
 				<br />
