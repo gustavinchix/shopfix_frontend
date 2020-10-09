@@ -81,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			fetchEliminarCategoria: categoria_id => {
-				fetch(`${baseAPIUrl}/categorias/<categoria_id>`, {
+				fetch(`${baseAPIUrl}/categorias/${categoria_id}`, {
 					method: "DELETE"
 				})
 					.then(response => response.json())

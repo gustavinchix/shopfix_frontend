@@ -51,13 +51,12 @@ export const CategoriasAdmin = () => {
 		setIcono("");
 	};
 
-	// aca tiene que estar integrado con el context también para que haga la funcion
-	const eliminarCategoria = id => {
-		//console.log(id);
-		const arrayFiltrado = categorias.filter(item => item.id !== id);
-		setCategorias(arrayFiltrado);
+	//
+	const eliminarCategoria = async id => {
+		//const arrayFiltrado = categorias.filter(item => item.id !== id);
+		//setCategorias(arrayFiltrado);
 
-		//await actions.fetchEliminarCategoria({ nombre, descripcion, icono }, id);
+		await actions.fetchEliminarCategoria(id);
 	};
 
 	const editar = item => {
