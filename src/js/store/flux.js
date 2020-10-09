@@ -3,6 +3,7 @@ const baseAPIUrl = "https://3000-cbe22b94-ffc5-4a04-83d9-27fa41f15bbe.ws-us02.gi
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			productos: [],
 			categorias: [],
 
 			demo: [
@@ -90,6 +91,52 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("categoría eliminada");
 					})
 					.catch(error => console.error("Error:", error));
+			},
+
+			// Para productos
+
+			fetchCargarProductos: async () => {
+				let response = await fetch(`${baseAPIUrl}/productos`);
+				if (response.ok) {
+					let productos = await response.json();
+					setStore({
+						productos: productos
+					});
+					console.log(productos);
+					return true;
+				} else {
+					console.log(`get response failure: ${response.status}`);
+					setStore({
+						productos: []
+					});
+					return false;
+				}
+			},
+			fetchCrearProducto: async nuevoProducto => {
+				try {
+					let response = await fetch(`${baseAPIUrl}/productos`, {
+						method: "POST",
+						body: JSON.stringify(nuevoProducto),
+						headers: {
+							"Content-Type": "application/json"
+						}
+					});
+					if (response.ok) {
+						// hacer fetch! porque se creo un nuevo
+						// producto y hay que refrescar la lista
+						alert("nuevo producto agregada");
+						return getActions().fetchCargarProductos();
+					} else {
+						setStore({
+							productos: []
+						});
+						console.log(`post response failure: ${response.status}`);
+						return false;
+					}
+				} catch (error) {
+					console.log(`pasó esto: ${error}`);
+					return false;
+				}
 			},
 
 			// Use getActions to call a function within a fuction
