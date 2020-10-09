@@ -56,7 +56,8 @@ export const CategoriasAdmin = () => {
 		//console.log(id);
 		const arrayFiltrado = categorias.filter(item => item.id !== id);
 		setCategorias(arrayFiltrado);
-		console.log(categorias);
+
+		//await actions.fetchEliminarCategoria({ nombre, descripcion, icono }, id);
 	};
 
 	const editar = item => {
@@ -72,7 +73,6 @@ export const CategoriasAdmin = () => {
 		//e.preventDefault();
 		if (!nombre.trim()) {
 			console.log("Elemento Vacío");
-			//setError('Escriba algo por favor...')
 			return;
 		}
 
@@ -87,14 +87,6 @@ export const CategoriasAdmin = () => {
 		}
 		await actions.fetchEditarCategoria({ nombre, descripcion, icono }, id);
 
-		// const arrayEditado = categorias.map(
-		// 	item =>
-		// 		item.id === id
-		// 			? { id: id, nombreCategoria: nombre, descripcionCategoria: descripcion, iconoCategoria: icono }
-		// 			: item
-		// );
-
-		// setCategorias(arrayEditado);
 		setModoEdicion(false);
 		setNombre("");
 		setDescripcion("");

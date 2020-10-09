@@ -70,6 +70,26 @@ export const ProductosAdmin = () => {
 		setCategoria("");
 	};
 
+	const guardarProducto = async () => {
+		if (
+			titulo.trim() != "" &&
+			descripcion.trim() != "" &&
+			precio.trim() != "" &&
+			imagen.trim() != "" &&
+			categoria.trim() != ""
+		) {
+			await actions.fetchCrearProducto({ titulo, descripcion, precio, imagen, categoria });
+			//Limpia los input para crear el proximo producto
+			setTitulo("");
+			setDescripcion("");
+			setPrecio("");
+			setImagen("");
+			setCategoria("");
+		} else {
+			console.log("debe llenar todos los campos");
+		}
+	};
+
 	// aca tiene que estar integrado con el context también para que haga la funcion
 	const eliminarProducto = id => {
 		//console.log(id);
@@ -77,19 +97,19 @@ export const ProductosAdmin = () => {
 		setProductos(arrayFiltrado);
 	};
 
+	//
 	const editar = item => {
 		console.log(item);
-		setModoEdicion(true); // revisar esto
-		setTitulo(item.tituloProducto);
-		setDescripcion(item.descripcionProducto);
-		setPrecio(item.precioProducto);
-		setImagen(item.imagenProducto);
-		setCategoria(item.categoriaProducto);
+		setModoEdicion(true);
+		setTitulo(item.titulo);
+		setDescripcion(item.descripcion);
+		setPrecio(item.precio);
+		setImagen(item.imagen);
+		setCategoria(item.categoria);
 		setId(item.id);
 	};
 
-	const editarProducto = e => {
-		e.preventDefault();
+	const editarProducto = async e => {
 		if (!titulo.trim()) {
 			console.log("Elemento Vacío");
 			//setError('Escriba algo por favor...')
@@ -116,21 +136,9 @@ export const ProductosAdmin = () => {
 			return;
 		}
 
-		const arrayEditado = productos.map(
-			item =>
-				item.id === id
-					? {
-							id: id,
-							tituloProducto: titulo,
-							descripcionProducto: descripcion,
-							precioProducto: precio,
-							imagenProducto: imagen,
-							categoriaProducto: categoria
-					  }
-					: item
-		);
+		await actions.fetchEditarProducto({ titulo, descripcion, precio, imagen, categoria }, id);
 
-		setProductos(arrayEditado);
+		//Limpia los input para crear el proximo producto
 		setModoEdicion(false);
 		setTitulo("");
 		setDescripcion("");
@@ -161,14 +169,14 @@ export const ProductosAdmin = () => {
 									<th>Editar</th>
 								</tr>
 							</thead>
-							{productos.map(item => (
+							{store.productos.map(item => (
 								<tbody key={item.id}>
 									<tr>
-										<td>{item.imagenProducto}</td>
-										<td>{item.tituloProducto}</td>
-										<td>{item.descripcionProducto}</td>
-										<td>{item.precioProducto}</td>
-										<td>{item.categoriaProducto}</td>
+										<td>{item.imagen}</td>
+										<td>{item.titulo}</td>
+										<td>{item.descripcion}</td>
+										<td>{item.precio}</td>
+										<td>{item.categoria}</td>
 										<td>
 											<button
 												className="btn btn-sm btn-danger float-center mx-2"
@@ -235,11 +243,14 @@ export const ProductosAdmin = () => {
 								/>
 								<br />
 								{modoEdicion ? (
-									<button className="btn btn-warning btn-block" type="submit">
+									<button
+										className="btn btn-warning btn-block"
+										type="button"
+										onClick={editarProducto}>
 										Editar
 									</button>
 								) : (
-									<button className="btn btn-dark btn-block" type="submit">
+									<button className="btn btn-dark btn-block" type="button" onClick={guardarProducto}>
 										Agregar
 									</button>
 								)}

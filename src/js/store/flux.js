@@ -1,4 +1,4 @@
-const baseAPIUrl = "https://3000-cbe22b94-ffc5-4a04-83d9-27fa41f15bbe.ws-us02.gitpod.io";
+const baseAPIUrl = "https://3000-e5425567-7649-45fc-8f39-2d28c8b9aee9.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -80,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("Error:", error));
 			},
 
-			eliminarCategoria: categoria_id => {
+			fetchEliminarCategoria: categoria_id => {
 				fetch(`${baseAPIUrl}/categorias/<categoria_id>`, {
 					method: "DELETE"
 				})
@@ -124,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						// hacer fetch! porque se creo un nuevo
 						// producto y hay que refrescar la lista
-						alert("nuevo producto agregada");
+						alert("nuevo producto agregado");
 						return getActions().fetchCargarProductos();
 					} else {
 						setStore({
@@ -137,6 +137,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(`pasó esto: ${error}`);
 					return false;
 				}
+			},
+
+			fetchEditarProducto: (producto, producto_id) => {
+				fetch(`${baseAPIUrl}/productos/${producto_id}`, {
+					method: "PUT",
+					body: JSON.stringify(producto),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => response.json())
+					.then(data => {
+						alert("se ha modificado el producto", JSON.stringify(data));
+						getActions().fetchCargarProductos();
+					})
+					.catch(error => console.log("Error:", error));
+			},
+
+			fetchEliminarProducto: producto_id => {
+				fetch(`${baseAPIUrl}/productos/<producto_id>`, {
+					method: "DELETE"
+				})
+					.then(response => response.json())
+					.then(data => {
+						console.log("delete", data);
+						getActions().fetchCargarProductos();
+						alert("producto eliminado");
+					})
+					.catch(error => console.error("Error:", error));
 			},
 
 			// Use getActions to call a function within a fuction
