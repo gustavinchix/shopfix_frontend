@@ -13,7 +13,8 @@ export const ProductosAdmin = () => {
 	const [precio, setPrecio] = useState(""); // precio del producto
 	const [imagen, setImagen] = useState(""); // imagen del producto
 	//const UserImages = props => {
-	const [categoria, setCategoria] = useState(""); // categoria del producto
+	//**const [categoria, setCategoria] = useState(""); // categoria del producto
+	const [categoria_id, setCategoria_id] = useState(""); // id de la categoria del producto**
 	const [productos, setProductos] = useState([]); // estado de la lista de productos
 	const [modoEdicion, setModoEdicion] = useState(false);
 	const [id, setId] = React.useState("");
@@ -40,15 +41,15 @@ export const ProductosAdmin = () => {
 			console.log("La imagen del producto está vacía");
 			return;
 		}
-		if (!categoria.trim()) {
-			console.log("La categoria del producto está vacía");
+		if (!categoria_id.trim()) {
+			console.log("El id categoria está vacío");
 			return;
 		}
 		console.log(titulo);
 		console.log(descripcion);
 		console.log(precio);
 		console.log(imagen);
-		console.log(categoria);
+		console.log(categoria_id);
 		//console.log("procesando datos..." + categoria + descripcion);
 
 		setProductos([
@@ -59,7 +60,7 @@ export const ProductosAdmin = () => {
 				descripcionProducto: descripcion,
 				precioProducto: precio,
 				imagenProducto: imagen,
-				categoriaProducto: categoria
+				categoriaProducto: categoria_id
 			}
 		]);
 
@@ -67,7 +68,7 @@ export const ProductosAdmin = () => {
 		setDescripcion("");
 		setPrecio("");
 		setImagen("");
-		setCategoria("");
+		setCategoria_id("");
 	};
 
 	const guardarProducto = async () => {
@@ -76,15 +77,17 @@ export const ProductosAdmin = () => {
 			descripcion.trim() != "" &&
 			precio.trim() != "" &&
 			imagen.trim() != "" &&
-			categoria.trim() != ""
+			//**categoria.trim() != "" &&
+			categoria_id.trim() != ""
 		) {
-			await actions.fetchCrearProducto({ titulo, descripcion, precio, imagen, categoria });
+			await actions.fetchCrearProducto({ titulo, descripcion, precio, imagen, categoria_id });
 			//Limpia los input para crear el proximo producto
 			setTitulo("");
 			setDescripcion("");
 			setPrecio("");
 			setImagen("");
-			setCategoria("");
+			//setCategoria("");
+			setCategoria_id(""); // seria null estado inicial?
 		} else {
 			console.log("debe llenar todos los campos");
 		}
@@ -105,7 +108,8 @@ export const ProductosAdmin = () => {
 		setDescripcion(item.descripcion);
 		setPrecio(item.precio);
 		setImagen(item.imagen);
-		setCategoria(item.categoria);
+		//**setCategoria(item.categoria);
+		setCategoria_id(item.categoria_id);
 		setId(item.id);
 	};
 
@@ -131,12 +135,12 @@ export const ProductosAdmin = () => {
 			return;
 		}
 
-		if (!categoria.trim()) {
+		if (!categoria_id.trim()) {
 			console.log("Categoría vacía");
 			return;
 		}
 
-		await actions.fetchEditarProducto({ titulo, descripcion, precio, imagen, categoria }, id);
+		await actions.fetchEditarProducto({ titulo, descripcion, precio, imagen, categoria_id }, id);
 
 		//Limpia los input para crear el proximo producto
 		setModoEdicion(false);
@@ -144,7 +148,8 @@ export const ProductosAdmin = () => {
 		setDescripcion("");
 		setPrecio("");
 		setImagen("");
-		setCategoria("");
+		//**setCategoria("");
+		setCategoria_id("");
 		setId("");
 		//setError(null)
 	};
@@ -176,7 +181,7 @@ export const ProductosAdmin = () => {
 										<td>{item.titulo}</td>
 										<td>{item.descripcion}</td>
 										<td>{item.precio}</td>
-										<td>{item.categoria}</td>
+										<td>{item.categoria_id}</td>
 										<td>
 											<button
 												className="btn btn-sm btn-danger float-center mx-2"
@@ -234,14 +239,19 @@ export const ProductosAdmin = () => {
 									value={imagen}
 								/>
 
-								<input
-									type="text"
-									className="form-control mb-2"
-									placeholder="Ingrese una categoría para el producto"
-									onChange={e => setCategoria(e.target.value)}
-									value={categoria}
-								/>
+								<select
+									className="custom-select mr-sm-2"
+									onChange={e => setCategoria_id(e.target.value)}>
+									<option selected>{`Elegir categoria del producto`}</option>
+									{store.categorias.map(item => (
+										<option key={item.id} value={id}>
+											{categoria_id}
+										</option>
+									))}
+								</select>
+
 								<br />
+
 								{modoEdicion ? (
 									<button
 										className="btn btn-warning btn-block"
