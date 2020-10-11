@@ -4,7 +4,7 @@ import "../../styles/navbar.scss";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar1">
+		<nav className="navbar navbar-expand-lg navbar1 text-white">
 			<a className="navbar-brand" href="#">
 				ShopFix
 			</a>
@@ -18,7 +18,7 @@ export const Navbar = () => {
 				aria-label="Toggle navigation">
 				<span className="navbar-toggler-icon" />
 			</button>
-			<div className="collapse navbar-collapse" id="navbarNav">
+			<div className="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
 				<ul className="navbar-nav">
 					<li className="nav-item active">
 						<a className="nav-link" href="#">
