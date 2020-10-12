@@ -173,12 +173,15 @@ export const CategoriasAdmin = () => {
 								/>
 
 								<input
-									type="text"
+									type="file"
+									name="ImageFile"
+									label="Seleccionar icono"
 									className="form-control mb-2"
-									placeholder="Ingrese un icono para la categoría"
-									onChange={e => setIcono(e.target.value)} // tambien agregue este input
+									placeholder="Seleccione un icono"
+									onChange={e => setIcono(e.target.value)}
 									value={icono}
 								/>
+
 								<br />
 								{modoEdicion ? (
 									<button

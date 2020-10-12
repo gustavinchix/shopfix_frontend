@@ -151,7 +151,6 @@ export const ProductosAdmin = () => {
 		//**setCategoria("");
 		setCategoria_id("");
 		setId("");
-		//setError(null)
 	};
 
 	return (
@@ -232,7 +231,9 @@ export const ProductosAdmin = () => {
 									value={precio}
 								/>
 								<input
-									type="text"
+									type="file"
+									name="ImageFile"
+									label="Seleccionar imagen"
 									className="form-control mb-2"
 									placeholder="Seleccione una imagen para el producto"
 									onChange={e => setImagen(e.target.value)}
@@ -243,9 +244,9 @@ export const ProductosAdmin = () => {
 									className="custom-select mr-sm-2"
 									onChange={e => setCategoria_id(e.target.value)}>
 									<option selected>{`Elegir categoria del producto`}</option>
-									{store.categorias.map(item => (
-										<option key={item.id} value={id}>
-											{categoria_id}
+									{store.categorias.map(categoria => (
+										<option key={categoria.id} value={categoria.id}>
+											{categoria.nombre}
 										</option>
 									))}
 								</select>

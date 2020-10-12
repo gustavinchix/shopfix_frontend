@@ -156,7 +156,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			fetchEliminarProducto: producto_id => {
-				fetch(`${baseAPIUrl}/productos/<producto_id>`, {
+				fetch(`${baseAPIUrl}/productos/${producto_id}`, {
 					method: "DELETE"
 				})
 					.then(response => response.json())
