@@ -4,6 +4,7 @@ import "../../styles/cardshop.scss";
 
 export function Card() {
 	const [productos, setProductos] = useState([]);
+	const [cart, setCart] = useState([]);
 
 	useEffect(() => {
 		obtenerDatos();
@@ -14,23 +15,76 @@ export function Card() {
 		setProductos(products);
 	};
 
+	const addtoCart = item => {
+		setCart([...cart, { ...item }]);
+	};
+
+	const removefromCart = itemtoRemove => {
+		setCart(cart.filter(item => item !== itemtoRemove));
+	};
+
+	const totalSum = () => {
+		return cart.reduce((sum, { precio }) => sum + precio, 0);
+	};
+
 	return (
-		<div className="card-deck">
-			{productos.map(item => (
-				<div key={item.id} className="card">
-					<img src={item.imagen} className="card-img-top" alt="..." />
-					<div className="card-body">
-						<h5 className="card-title">
-							{item.titulo}
-							<br></br>${item.precio}
-						</h5>
-						<button type="button" className="btn btn-outline-dark">
-							Info
-						</button>
+		<Fragment>
+			<h1>Productos</h1>
+			<div className="container">
+				<div className="row">
+					{productos.map(item => (
+						<div key={item.id} className="col-md-3">
+							<div className="card">
+								<div className="card-block">
+									<img src={item.imagen} className="tamano card-img-top" alt="..." />
+									<div className="card-title">
+										<h4>
+											{item.titulo}
+											<br></br>${item.precio}
+										</h4>
+									</div>
+									<button
+										onClick={() => addtoCart(item)}
+										type="button"
+										className="btn btn-outline-dark">
+										Cart
+									</button>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<div>
+				<h1>Cart ({cart.length})</h1>
+				<div className="container">
+					<div className="row">
+						{cart.map(item => (
+							<div key={item.id} className="col-md-3">
+								<div className="card">
+									<div className="card-block">
+										<img src={item.imagen} className="tamano card-img-top" alt="..." />
+										<div className="card-title">
+											<h4>
+												{item.titulo}
+												<br></br>${item.precio}
+											</h4>
+										</div>
+										<button
+											onClick={() => removefromCart(item)}
+											type="button"
+											className="btn btn-outline-danger">
+											Remove
+										</button>
+									</div>
+								</div>
+							</div>
+						))}
 					</div>
 				</div>
-			))}
-		</div>
+				<h1>Precio Total: ${totalSum()}</h1>
+			</div>
+		</Fragment>
 	);
 }
 
