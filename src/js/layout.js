@@ -13,6 +13,7 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
+import { Login } from "./views/Login";
 import { Footer } from "./component/footer";
 // import { SearchPage } from "./views/SearchPage";
 
@@ -32,6 +33,10 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
+						</Route>
+
+						<Route exact path="/login">
+							<Login />
 						</Route>
 
 						<Route exact path="/edicion">

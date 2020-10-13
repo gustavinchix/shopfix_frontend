@@ -94,10 +94,11 @@ export const ProductosAdmin = () => {
 	};
 
 	// aca tiene que estar integrado con el context también para que haga la funcion
-	const eliminarProducto = id => {
+	const eliminarProducto = async id => {
 		//console.log(id);
-		const arrayFiltrado = productos.filter(item => item.id !== id);
-		setProductos(arrayFiltrado);
+		//const arrayFiltrado = productos.filter(item => item.id !== id);
+		//setProductos(arrayFiltrado);
+		await actions.fetchEliminarProducto(id);
 	};
 
 	//
@@ -148,7 +149,6 @@ export const ProductosAdmin = () => {
 		setDescripcion("");
 		setPrecio("");
 		setImagen("");
-		//**setCategoria("");
 		setCategoria_id("");
 		setId("");
 	};
