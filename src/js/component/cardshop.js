@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "../../styles/cardshop.scss";
 
@@ -43,11 +43,8 @@ export function Card() {
 											<br></br>${item.precio}
 										</h4>
 									</div>
-									<button
-										onClick={() => addtoCart(item)}
-										type="button"
-										className="btn btn-outline-dark">
-										Cart
+									<button onClick={() => addtoCart(item)} type="button" className="btn ">
+										<i className="fas fa-shopping-cart" />
 									</button>
 								</div>
 							</div>
@@ -70,11 +67,8 @@ export function Card() {
 												<br></br>${item.precio}
 											</h4>
 										</div>
-										<button
-											onClick={() => removefromCart(item)}
-											type="button"
-											className="btn btn-outline-danger">
-											Remove
+										<button onClick={() => removefromCart(item)} type="button" className="btn ">
+											<i className="fas fa-times"></i>
 										</button>
 									</div>
 								</div>
