@@ -1,38 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "../../styles/navbar.scss";
+import logo from "../../img/SHOPFIX.JPG";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-expand-lg navbar1 text-white">
-			<a className="navbar-brand" href="#">
-				ShopFix
-			</a>
-			<button
-				className="navbar-toggler"
-				type="button"
-				data-toggle="collapse"
-				data-target="#navbarNav"
-				aria-controls="navbarNav"
-				aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span className="navbar-toggler-icon" />
-			</button>
-			<div className="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
-				<ul className="navbar-nav">
-					<li className="nav-item active">
+		<div className="navbar1">
+			<nav className="navbar navbar-expand-lg  mb-4">
+				<a className="navbar-brand" href="#">
+					ShopFix
+				</a>
+                <img className="d-block img-fluid w-100" src={logo} alt="First slide" />
+				<div className="collapse navbar-collapse " id="navbarSupportedContent">
+					<form className="form-inline ml-auto">
+						<div className="md-form my-0">
+							<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+						</div>
 						<a className="nav-link" href="#">
-							Home <span className="sr-only">(current)</span>
+							Card <span className="sr-only"></span>
 						</a>
-					</li>
-					<li className="nav-item">
-						<a className="nav-link" href="#">
+						<button href="#!" className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
 							Login
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
+						</button>
+					</form>
+				</div>
+			</nav>
+		</div>
 	);
 };
 
