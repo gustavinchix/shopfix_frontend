@@ -68,7 +68,7 @@ export function Card() {
 											</h4>
 										</div>
 										<button onClick={() => removefromCart(item)} type="button" className="btn ">
-											<i className="fas fa-times"></i>
+											<i className="fas fCa-times"></i>
 										</button>
 									</div>
 								</div>
