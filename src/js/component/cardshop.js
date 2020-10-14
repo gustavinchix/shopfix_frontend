@@ -5,6 +5,7 @@ import "../../styles/cardshop.scss";
 export function Card() {
 	const [productos, setProductos] = useState([]);
 	const [cart, setCart] = useState([]);
+	const [search, setSearch] = useState("");
 
 	useEffect(() => {
 		obtenerDatos();
@@ -27,12 +28,17 @@ export function Card() {
 		return cart.reduce((sum, { precio }) => sum + precio, 0);
 	};
 
+	const filterProducts = productos.filter(item => {
+		return item.titulo.toLowerCase().includes(search.toLowerCase());
+	});
+
 	return (
 		<Fragment>
+			<input type="text" placeholder="Buscar Producto" onChange={e => setSearch(e.target.value)}></input>
 			<h1>Productos</h1>
 			<div className="container">
 				<div className="row">
-					{productos.map(item => (
+					{filterProducts.map(item => (
 						<div key={item.id} className="col-md-3">
 							<div className="card">
 								<div className="card-block">
@@ -68,7 +74,7 @@ export function Card() {
 											</h4>
 										</div>
 										<button onClick={() => removefromCart(item)} type="button" className="btn ">
-											<i className="fas fCa-times"></i>
+											<i className="fas fa-times"></i>
 										</button>
 									</div>
 								</div>
