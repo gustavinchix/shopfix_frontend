@@ -1,8 +1,9 @@
-const baseAPIUrl = "https://3000-e5425567-7649-45fc-8f39-2d28c8b9aee9.ws-us02.gitpod.io";
+const baseAPIUrl = "https://3000-d1531b8c-11c1-4855-999a-eb2feca6dea5.ws-us02.gitpod.io/";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			token: "",
 			productos: [],
 			categorias: [],
 
@@ -112,6 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false;
 				}
 			},
+
 			fetchCrearProducto: async nuevoProducto => {
 				try {
 					let response = await fetch(`${baseAPIUrl}/productos`, {
@@ -166,6 +168,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 						alert("producto eliminado");
 					})
 					.catch(error => console.error("Error:", error));
+			},
+
+			//Login
+
+			fetchLogin: async dataAccess => {
+				try {
+					let response = await fetch(`${baseAPIUrl}/login`, {
+						method: "POST",
+						body: JSON.stringify(dataAccess),
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${token}`
+						}
+					});
+					if (response.ok) {
+						let acceso = await response.json();
+						setStore({
+							token: acceso.token
+						});
+						return true;
+					} else {
+						console.log(`get response failure: ${response.status}`);
+						setStore({
+							token: ""
+						});
+						return false;
+					}
+				} catch (error) {
+					console.log(`pasó esto: ${error}`);
+					return false;
+				}
 			},
 
 			// Use getActions to call a function within a fuction

@@ -10,9 +10,17 @@ export const Login = () => {
 	const [password_hash, setPassword_hash] = useState("");
 	const { store, actions } = useContext(Context);
 
-	const signIn = e => {
-		e.preventDefault();
-		// {store.signInwithEmailAndPass}
+	const signIn = async () => {
+		//e.preventDefault();
+		if (email.trim() != "" && password_hash.trim() != "") {
+			await actions.fetchLogin({ email, password_hash });
+			//Limpia los input para crear la proxima categoria
+			console.log("ACCEDISTE!!!");
+			setEmail("");
+			setPassword_hash("");
+		} else {
+			console.log("debe llenar todos los campos");
+		}
 	};
 
 	const register = e => {
@@ -39,9 +47,11 @@ export const Login = () => {
 					<h5>Contraseña</h5>
 					<input type="password" value={password_hash} onChange={e => setPassword_hash(e.target.value)} />
 
-					<button type="submit" onClick={signIn} className="login__signInButton">
-						Ingresar
-					</button>
+					<Link to="/Edicion">
+						<button type="submit" onClick={signIn} className="login__signInButton">
+							Ingresar
+						</button>
+					</Link>
 				</form>
 
 				<p>
