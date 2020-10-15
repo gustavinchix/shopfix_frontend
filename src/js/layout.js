@@ -16,6 +16,7 @@ import { Card } from "./component/cardshop";
 import { Navbar } from "./component/navbar";
 import { Login } from "./views/Login";
 import { Footer } from "./component/footer";
+import { SearchPage } from "./views/SearchPage";
 // import { SearchPage } from "./views/SearchPage";
 
 const Layout = () => {
@@ -39,6 +40,10 @@ const Layout = () => {
 
 						<Route exact path="/login">
 							<Login />
+						</Route>
+
+						<Route exact path="/search">
+							<SearchPage />
 						</Route>
 
 						<Route exact path="/edicion">
