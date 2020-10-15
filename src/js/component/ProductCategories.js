@@ -1,5 +1,5 @@
 import React from "react";
-//import "../../styles/index.scss";
+import { Link } from "react-router-dom";
 import "../../styles/ProductCategories.scss";
 import ShoppingWomen from "../../img/women-s-pink-sweatshirt-and-brown-plaid-skirt-794064.jpg";
 import ShoppingMen from "../../img/selective-focus-photo-of-man-wearing-black-turtleneck-top-837140.jpg";
@@ -17,9 +17,7 @@ export const ProductCategories = () => {
 						<img className="card-img-top" src={ShoppingWomen} alt="Products" />
 						<div className="card-body ">
 							{/* <h3 className="card-title ">Shop Women's</h3> */}
-							<a href="/collections/women" className="stretched-link">
-								{"Mujer"}
-							</a>
+							<Link to="/categoryone">{"Mujer"}</Link>
 						</div>
 					</div>
 				</div>
@@ -28,9 +26,7 @@ export const ProductCategories = () => {
 					<div className="card-product card-body-product-categories">
 						<img className="card-img-top " src={ShoppingMen} alt="Products" />
 						<div className="card-body">
-							<a href="/collections/men" className="stretched-link">
-								{"Hombre"}
-							</a>
+							<Link to="/categorytwo">{"Hombre"}</Link>
 						</div>
 					</div>
 				</div>
@@ -41,10 +37,7 @@ export const ProductCategories = () => {
 
 						<div className="card-body">
 							{/* <h3 className="card-title">Shop Kid's</h3> */}
-
-							<a href="/collections/kids" className="stretched-link">
-								{"Niños"}
-							</a>
+							<Link to="/categorythree">{"Niños"}</Link>
 						</div>
 					</div>
 				</div>
@@ -56,9 +49,7 @@ export const ProductCategories = () => {
 						<img className="card-img-top " src={ShoppingHome} alt="Products" />
 						<div className="card-body">{/* <h3 className="card-title">Shop Home</h3> */}</div>
 						<div className="card-country-info">
-							<a href="/collections/men" className="stretched-link">
-								{"Hogar"}
-							</a>
+							<Link to="/categoryfour">{"Hogar"}</Link>
 						</div>
 					</div>
 				</div>
@@ -67,9 +58,7 @@ export const ProductCategories = () => {
 						<img className="card-img-top" src={ShoppingElectronics} alt="Products" />
 						<div className="card-body ">
 							{/* <h3 className="card-title ">Shop Electronics</h3> */}
-							<a href="/collections/women" className="stretched-link">
-								{"Electrónicos"}
-							</a>
+							<Link to="/categoryfive">{"Electrónicos"}</Link>
 						</div>
 					</div>
 				</div>
@@ -80,10 +69,7 @@ export const ProductCategories = () => {
 
 						<div className="card-body">
 							{/* <h3 className="card-title">Shop Food</h3> */}
-
-							<a href="/collections/kids" className="stretched-link">
-								{"Snacks"}
-							</a>
+							<Link to="/categorysix">{"Snacks"}</Link>
 						</div>
 					</div>
 				</div>

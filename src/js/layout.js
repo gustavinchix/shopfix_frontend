@@ -11,12 +11,20 @@ import { ProductosAdmin } from "./views/ProductosAdmin";
 import { Single } from "./views/single";
 
 import injectContext from "./store/appContext";
-import { Card } from "./component/cardshop";
+//import { Card } from "./component/cardshop";
 
 import { Navbar } from "./component/navbar";
 import { Login } from "./views/Login";
 import { Footer } from "./component/footer";
 import { SearchPage } from "./views/SearchPage";
+import { CategoriaCard } from "./component/CategoriaCard";
+
+import { CategorySix } from "./views/CategorySix";
+import { CategoryFour } from "./views/CategoryFour";
+import { CategoryFive } from "./views/CategoryFive";
+import { CategoryOne } from "./views/CategoryOne";
+import { CategoryTwo } from "./views/CategoryTwo";
+import { CategoryThree } from "./views/CategoryThree";
 // import { SearchPage } from "./views/SearchPage";
 
 const Layout = () => {
@@ -29,7 +37,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
-					<Card />
+
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -46,6 +54,10 @@ const Layout = () => {
 							<SearchPage />
 						</Route>
 
+						<Route exact path="/categoriacard">
+							<CategoriaCard />
+						</Route>
+
 						<Route exact path="/edicion">
 							<Edicion />
 						</Route>
@@ -56,6 +68,30 @@ const Layout = () => {
 
 						<Route exact path="/categoriasadmin">
 							<CategoriasAdmin />
+						</Route>
+
+						<Route exact path="/categoryone">
+							<CategoryOne />
+						</Route>
+
+						<Route exact path="/categorytwo">
+							<CategoryTwo />
+						</Route>
+
+						<Route exact path="/categorythree">
+							<CategoryThree />
+						</Route>
+
+						<Route exact path="/categoryfour">
+							<CategoryFour />
+						</Route>
+
+						<Route exact path="/categoryfive">
+							<CategoryFive />
+						</Route>
+
+						<Route exact path="/categorysix">
+							<CategorySix />
 						</Route>
 
 						<Route exact path="/single/:theid">
