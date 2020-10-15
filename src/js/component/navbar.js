@@ -29,13 +29,18 @@ export const Navbar = () => {
 					<form className="form-inline ml-auto">
 						<div className="md-form my-0">
 							<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+							<Link to="/search">
+								<button className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
+									<i className="fas fa-search"></i>
+								</button>
+							</Link>
 						</div>
 						<a className="nav-link" href="#">
 							<i className="fas fa-shopping-cart" /> <span className="sr-only" />
 						</a>
 						<Link to="/Login">
 							<button className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
-								Login
+								<i className="fas fa-user"></i>
 							</button>
 						</Link>
 						{/* <button href="#!" className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">

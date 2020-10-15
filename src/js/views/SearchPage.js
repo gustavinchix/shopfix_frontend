@@ -12,7 +12,7 @@ export const SearchPage = () => {
 	const BarStyling = { width: "20rem", background: "#F2F1F9", border: "none", padding: "0.5rem" };
 
 	const fetchData = async () => {
-		return await fetch("https://3000-e5425567-7649-45fc-8f39-2d28c8b9aee9.ws-us02.gitpod.io/productos")
+		return await fetch("https://3000-ac39cd9f-8e82-4509-aefa-74d1bf2ff4a5.ws-us02.gitpod.io/productos")
 			.then(response => response.json())
 			.then(data => {
 				setProductList(data);

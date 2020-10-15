@@ -12,6 +12,7 @@ export function Card() {
 	}, []);
 	const obtenerDatos = async () => {
 		const data = await fetch("https://3000-ac39cd9f-8e82-4509-aefa-74d1bf2ff4a5.ws-us02.gitpod.io/productos");
+		//const data = await fetch("https://3000-e2cdfb92-1e98-40e4-b573-9dfae6e651c6.ws-us02.gitpod.io/productos"); esta url me funcionaba a mi porque la otra nop
 		const products = await data.json();
 		setProductos(products);
 	};
