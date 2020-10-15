@@ -11,6 +11,7 @@ import { ProductosAdmin } from "./views/ProductosAdmin";
 import { Single } from "./views/single";
 
 import injectContext from "./store/appContext";
+import { Card } from "./component/cardshop";
 
 import { Navbar } from "./component/navbar";
 import { Login } from "./views/Login";
@@ -27,6 +28,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
+					<Card />
 					<Switch>
 						<Route exact path="/">
 							<Home />

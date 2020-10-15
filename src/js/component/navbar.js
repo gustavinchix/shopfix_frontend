@@ -1,17 +1,50 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ReactDOM from "react-dom";
+import "../../styles/navbar.scss";
+import logo from "../../img/SHOPFIX.png";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/Login">
-					<button className="btn btn-primary">Login</button>
-				</Link>
-			</div>
-		</nav>
+		// <nav className="navbar navbar-light bg-light mb-3">
+		// 	<Link to="/">
+		// 		<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+		// 	</Link>
+			
+		// 	<div className="ml-auto">
+		// 		<Link to="/Login">
+		// 			<button className="btn btn-primary">Login</button>
+		// 		</Link>
+				
+		// 	</div>
+		// </nav>
+		<div className="navbar1">
+			<nav className="navbar navbar-expand-lg  mb-4">
+				<a className="navbar-brand" href="#"></a>
+                <Link to="/">
+				    <img className="d-block img-fluid logo" src={logo} alt="First slide" />
+			    </Link>
+				{/* <img className="d-block img-fluid logo" src={logo} alt="First slide" /> */}
+				<div className="collapse navbar-collapse " id="navbarSupportedContent">
+					<form className="form-inline ml-auto">
+						<div className="md-form my-0">
+							<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+						</div>
+						<a className="nav-link" href="#">
+							<i className="fas fa-shopping-cart"></i> <span className="sr-only"></span>
+						</a>
+                        <Link to="/Login">
+                            <button href="#!" className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
+                                    Login
+                                </button>
+                        </Link>
+						{/* <button href="#!" className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
+							Login
+						</button> */}
+					</form>
+				</div>
+			</nav>
+		</div>
 	);
 };
+
+ReactDOM.render(<Navbar />, document.querySelector("#app"));
