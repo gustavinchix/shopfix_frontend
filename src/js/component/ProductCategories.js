@@ -7,6 +7,7 @@ import ShoppingKids from "../../img/kids-pic.jpg";
 import ShoppingHome from "../../img/categoria4.jpg";
 import ShoppingElectronics from "../../img/categoria5.jpg";
 import ShoppingFood from "../../img/backupcategoria6.jpg";
+import { Card } from "../component/cardshop";
 
 export const ProductCategories = () => {
 	return (

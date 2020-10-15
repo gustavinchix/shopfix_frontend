@@ -31,7 +31,7 @@ export const Navbar = () => {
 							<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
 						</div>
 						<a className="nav-link" href="#">
-							<i className="fas fa-shopping-cart" /> <span className="sr-only" />
+							<i className="fas fa-shopping-cart cart" /> <span className="sr-only" />
 						</a>
 						<Link to="/Login">
 							<button className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
