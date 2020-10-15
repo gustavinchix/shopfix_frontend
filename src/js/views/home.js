@@ -11,7 +11,6 @@ import { Card } from "../component/cardshop";
 export const Home = () => (
 	<div>
 		<ControlledCarousel />
-		<Card />
 		<ProductCategories />
 	</div>
 );
