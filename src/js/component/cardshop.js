@@ -34,7 +34,7 @@ export function Card() {
 
 	return (
 		<Fragment>
-			<input type="text" placeholder="Buscar Producto" onChange={e => setSearch(e.target.value)}></input>
+			<input type="text" placeholder="Buscar Producto" onChange={e => setSearch(e.target.value)} />
 			<h1>Productos</h1>
 			<div className="container">
 				<div className="row">
@@ -46,7 +46,7 @@ export function Card() {
 									<div className="card-title">
 										<h4>
 											{item.titulo}
-											<br></br>${item.precio}
+											<br />${item.precio}
 										</h4>
 									</div>
 									<button onClick={() => addtoCart(item)} type="button" className="btn ">
@@ -70,11 +70,11 @@ export function Card() {
 										<div className="card-title">
 											<h4>
 												{item.titulo}
-												<br></br>${item.precio}
+												<br />${item.precio}
 											</h4>
 										</div>
 										<button onClick={() => removefromCart(item)} type="button" className="btn ">
-											<i className="fas fa-times"></i>
+											<i className="fas fa-times" />
 										</button>
 									</div>
 								</div>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 //import { Navbar } from "../component/navbar";
 import { ControlledCarousel } from "../../js/component/ControlledCarousel";

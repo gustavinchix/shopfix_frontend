@@ -5,8 +5,8 @@ export const Footer = () => (
 		<p>
 			<a>
 				{" "}
-				Siganos en nuestras redes sociales <i className="fab fa-instagram"></i>{" "}
-				<i className="fab fa-facebook-f"></i> <i className="fab fa-twitter"></i>{" "}
+				Siganos en nuestras redes sociales <i className="fab fa-instagram" />{" "}
+				<i className="fab fa-facebook-f" /> <i className="fab fa-twitter" />{" "}
 			</a>
 		</p>
 	</footer>
