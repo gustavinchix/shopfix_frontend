@@ -35,6 +35,7 @@ const injectContext = PassedComponent => {
 			console.log("Estoy funcionando");
 			state.actions.fetchCargarCategorias();
 			state.actions.fetchCargarProductos();
+			//state.actions.fetchProductosenCategoria();
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

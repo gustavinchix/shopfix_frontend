@@ -231,11 +231,9 @@ export const ProductosAdmin = () => {
 									value={precio}
 								/>
 								<input
-									type="file"
-									name="ImageFile"
-									label="Seleccionar imagen"
+									type="text"
 									className="form-control mb-2"
-									placeholder="Seleccione una imagen para el producto"
+									placeholder="Coloque una imagen url para el producto"
 									onChange={e => setImagen(e.target.value)}
 									value={imagen}
 								/>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-//import SearchBar from "../component/SearchBar";
 //import ProductList from "../component/ProductList";
 
 //export const Login = () => {
@@ -12,7 +11,7 @@ export const SearchPage = () => {
 	const BarStyling = { width: "20rem", background: "#F2F1F9", border: "none", padding: "0.5rem" };
 
 	const fetchData = async () => {
-		return await fetch("https://3000-ac39cd9f-8e82-4509-aefa-74d1bf2ff4a5.ws-us02.gitpod.io/productos")
+		return await fetch("https://3000-d1531b8c-11c1-4855-999a-eb2feca6dea5.ws-us02.gitpod.io/productos")
 			.then(response => response.json())
 			.then(data => {
 				setProductList(data);

@@ -22,7 +22,7 @@ export const ControlledCarousel = () => {
 						<h1>Colección Hogar</h1>
 						<p>Lorem ipsum dolor sit ametmm, consectetur adipiscing elit.</p>
 
-						<Link to="/demo">
+						<Link to="/categoryfour">
 							<button className="btn btn-danger">COMPRAR</button>
 						</Link>
 					</div>
@@ -40,7 +40,7 @@ export const ControlledCarousel = () => {
 							<br />
 							Phasellus blandit massa enim.
 						</p>
-						<Link to="/demo">
+						<Link to="/categoryfive">
 							<button className="btn btn-danger">COMPRAR</button>
 						</Link>
 					</div>
@@ -54,7 +54,7 @@ export const ControlledCarousel = () => {
 						<p>NIÑOS</p>
 						<h3>Colección Verano 2020</h3>
 						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-						<Link to="/demo">
+						<Link to="/categorythree">
 							<button className="btn btn-danger">COMPRAR</button>
 						</Link>
 					</div>

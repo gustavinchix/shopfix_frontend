@@ -95,6 +95,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.error("Error:", error));
 			},
 
+			// Fetch para traer los productos asociados a una categoria
+			//fetchProductosenCategoria: async () => {
+			//    let response = await fetch(`${baseAPIUrl}/productos/categoria/${categoria_id}`);
+			//	if (response.ok) {
+			//		let productos = await response.json();
+			//		setStore({
+			//			productos: productos
+			//		});
+			//		console.log(productos);
+			//		return true;
+			//	} else {
+			//		console.log(`get response failure: ${response.status}`);
+			//		setStore({
+			//			productos: []
+			//		});
+			//		return false;
+			//	}
+			//},
+
 			// Para productos
 
 			fetchCargarProductos: async () => {
