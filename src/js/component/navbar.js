@@ -6,6 +6,21 @@ import "../../styles/navbar.scss";
 import logo from "../../img/SHOPFIX.png";
 import { Modal, TextField, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import emailjs from "emailjs-com";
+
+function sendEmail(e) {
+	e.preventDefault();
+
+	emailjs.sendForm("gmail", "template_jh9l51k", e.target, "user_0R6GKnF5lgP8flswwEc5I").then(
+		result => {
+			console.log(result.text);
+		},
+		error => {
+			console.log(error.text);
+		}
+	);
+	e.target.reset();
+}
 
 /*Esto es del modal del carrito*/
 const useStyles = makeStyles(theme => ({
@@ -40,12 +55,22 @@ export const Navbar = () => {
 			<div align="center">
 				<h2>Carrito de Compras</h2>
 			</div>
-			<TextField label="Nombre y Apellido" className={styles.textfield}></TextField>
-			<TextField label="Direccion" className={styles.textfield}></TextField>
-			<TextField label="Correo" className={styles.textfield}></TextField>
+			<form className="contact-form" onSubmit={sendEmail}>
+				<input
+					className="noborderinput"
+					type="text"
+					value="Aqui van los productos"
+					name="prueba"
+					readOnly></input>
+				<input className="formcarro" type="text" name="user_name" placeholder="Nombre y apellido" />
+				<input className="formcarro" type="email" name="user_email" placeholder="Email" />
+				<input className="formcarro" type="text" name="user_number" placeholder="Numero de contacto" />
+				<input className="formcarro" type="direccion" name="user_address" placeholder="Direccion de Envio" />
+				<input type="submit" value="Finalizar Compra" className="carritoform" />
+			</form>
 
 			<Button onClick={() => abrirCerrarModal()} type="button">
-				Cerrar
+				<i className="far fa-times-circle"></i>
 			</Button>
 		</div>
 	);
