@@ -4,14 +4,29 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
+import { Edicion } from "./views/Edicion";
+import { CategoriasAdmin } from "./views/CategoriasAdmin";
+import { ProductosAdmin } from "./views/ProductosAdmin";
+
 import { Single } from "./views/single";
+
 import injectContext from "./store/appContext";
-import { Card } from "./component/cardshop";
+//import { Card } from "./component/cardshop";
 
 import { Navbar } from "./component/navbar";
+import { Login } from "./views/Login";
 import { Footer } from "./component/footer";
+import { SearchPage } from "./views/SearchPage";
+import { CategoriaCard } from "./component/CategoriaCard";
 
-//create your first component
+import { CategorySix } from "./views/CategorySix";
+import { CategoryFour } from "./views/CategoryFour";
+import { CategoryFive } from "./views/CategoryFive";
+import { CategoryOne } from "./views/CategoryOne";
+import { CategoryTwo } from "./views/CategoryTwo";
+import { CategoryThree } from "./views/CategoryThree";
+// import { SearchPage } from "./views/SearchPage";
+
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
@@ -22,7 +37,6 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
-					<Card />
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -30,9 +44,59 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
+
+						<Route exact path="/login">
+							<Login />
+						</Route>
+
+						<Route exact path="/search">
+							<SearchPage />
+						</Route>
+
+						<Route exact path="/categoriacard">
+							<CategoriaCard />
+						</Route>
+
+						<Route exact path="/edicion">
+							<Edicion />
+						</Route>
+
+						<Route exact path="/productosadmin">
+							<ProductosAdmin />
+						</Route>
+
+						<Route exact path="/categoriasadmin">
+							<CategoriasAdmin />
+						</Route>
+
+						<Route exact path="/categoryone">
+							<CategoryOne />
+						</Route>
+
+						<Route exact path="/categorytwo">
+							<CategoryTwo />
+						</Route>
+
+						<Route exact path="/categorythree">
+							<CategoryThree />
+						</Route>
+
+						<Route exact path="/categoryfour">
+							<CategoryFour />
+						</Route>
+
+						<Route exact path="/categoryfive">
+							<CategoryFive />
+						</Route>
+
+						<Route exact path="/categorysix">
+							<CategorySix />
+						</Route>
+
 						<Route exact path="/single/:theid">
 							<Single />
 						</Route>
+
 						<Route>
 							<h1>Not found!</h1>
 						</Route>

@@ -1,0 +1,68 @@
+import React, { useState, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { Context } from "../store/appContext";
+import Logo from "../../img/SHOPFIX.jpg";
+import "../../styles/index.scss";
+
+export const Login = () => {
+	//const history = useHistory();
+	const [email, setEmail] = useState("");
+	const [password_hash, setPassword_hash] = useState("");
+	const { store, actions } = useContext(Context);
+
+	const signIn = async () => {
+		//e.preventDefault();
+		if (email.trim() != "" && password_hash.trim() != "") {
+			await actions.fetchLogin({ email, password_hash });
+			//Limpia los input para crear la proxima categoria
+			console.log("ACCEDISTE!!!");
+			setEmail("");
+			setPassword_hash("");
+		} else {
+			console.log("debe llenar todos los campos");
+		}
+	};
+
+	const register = e => {
+		e.preventDefault();
+	};
+	//const signUp = e => {
+	//    e.preventDefault();
+	// {store.signInwithEmailAndPass}
+	//}
+
+	return (
+		<div className="login">
+			<Link to="/">
+				<img className="login__logo" src={Logo} />
+			</Link>
+
+			<div className="login__container">
+				<h1>Ingresar</h1>
+
+				<form>
+					<h5>E-mail</h5>
+					<input type="text" value={email} onChange={e => setEmail(e.target.value)} />
+
+					<h5>Contraseña</h5>
+					<input type="password" value={password_hash} onChange={e => setPassword_hash(e.target.value)} />
+
+					<Link to="/Edicion">
+						<button type="submit" onClick={signIn} className="login__signInButton">
+							Ingresar
+						</button>
+					</Link>
+				</form>
+
+				<p>
+					By signing-in you agree to the SHOPFIX Conditions of Use and Sale. Please see our Privacy Notice and
+					our Cookies Notice and our Interest-Based Ads Notice.
+				</p>
+
+				<button onClick={register} className="login__registerButton">
+					Crear cuenta Shopfix
+				</button>
+			</div>
+		</div>
+	);
+};

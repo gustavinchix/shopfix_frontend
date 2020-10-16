@@ -12,6 +12,7 @@ export function Card() {
 	}, []);
 	const obtenerDatos = async () => {
 		const data = await fetch("https://3000-ac39cd9f-8e82-4509-aefa-74d1bf2ff4a5.ws-us02.gitpod.io/productos");
+		//const data = await fetch("https://3000-e2cdfb92-1e98-40e4-b573-9dfae6e651c6.ws-us02.gitpod.io/productos"); esta url me funcionaba a mi porque la otra nop
 		const products = await data.json();
 		setProductos(products);
 	};
@@ -34,7 +35,7 @@ export function Card() {
 
 	return (
 		<Fragment>
-			<input type="text" placeholder="Buscar Producto" onChange={e => setSearch(e.target.value)}></input>
+			<input type="text" placeholder="Buscar Producto" onChange={e => setSearch(e.target.value)} />
 			<h1>Productos</h1>
 			<div className="container">
 				<div className="row">
@@ -46,7 +47,7 @@ export function Card() {
 									<div className="card-title">
 										<h4>
 											{item.titulo}
-											<br></br>${item.precio}
+											<br />${item.precio}
 										</h4>
 									</div>
 									<button onClick={() => addtoCart(item)} type="button" className="btn ">
@@ -70,11 +71,11 @@ export function Card() {
 										<div className="card-title">
 											<h4>
 												{item.titulo}
-												<br></br>${item.precio}
+												<br />${item.precio}
 											</h4>
 										</div>
 										<button onClick={() => removefromCart(item)} type="button" className="btn ">
-											<i className="fas fa-times"></i>
+											<i className="fas fa-times" />
 										</button>
 									</div>
 								</div>

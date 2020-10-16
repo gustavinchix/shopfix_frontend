@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/home.scss";
-import ReactDOM from "react-dom";
+//import { Navbar } from "../component/navbar";
+import { ControlledCarousel } from "../../js/component/ControlledCarousel";
+import { ProductCategories } from "../../js/component/ProductCategories";
+import { Card } from "../component/cardshop";
+//import { CategorieswithCarousel } from "../component/CategorieswithCarousel";
+// import { ControlledCarousel } from "./component/ControlledCarousel";
+//import { Carousel } from "./component/carousel";
 
-export const Home = () => {
-	return <div className="text-center mt-5"></div>;
-};
-
-ReactDOM.render(<Home />, document.querySelector("#app"));
+export const Home = () => (
+	<div>
+		<ControlledCarousel />
+		<ProductCategories />
+	</div>
+);
