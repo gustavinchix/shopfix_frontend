@@ -7,13 +7,13 @@ export const CategorySix = () => {
 	const [categoria_id, setCategoria_id] = useState(""); // id de la categoria del producto**
 	const [cart, setCart] = useState([]);
 	const [search, setSearch] = useState("");
-	const baseAPIUrl = "https://3000-d1531b8c-11c1-4855-999a-eb2feca6dea5.ws-us02.gitpod.io";
+	const baseAPIUrl = "https://3000-fa00c828-35ac-4b3a-877c-cc9d5126ddd6.ws-us02.gitpod.io/";
 
 	useEffect(() => {
 		obtenerDatos();
 	}, []);
 	const obtenerDatos = async () => {
-		const data = await fetch(`${baseAPIUrl}/productos/categoria/7`);
+		const data = await fetch(`${baseAPIUrl}/productos/categoria/1`);
 		//const data = await fetch("https://3000-e2cdfb92-1e98-40e4-b573-9dfae6e651c6.ws-us02.gitpod.io/productos"); esta url me funcionaba a mi porque la otra nop
 		const products = await data.json();
 		setProductos(products);
@@ -38,7 +38,7 @@ export const CategorySix = () => {
 	return (
 		<Fragment>
 			<input type="text" placeholder="Buscar Producto" onChange={e => setSearch(e.target.value)} />
-			<h1>Productos</h1>
+			<h1>Snacks</h1>
 			<div className="container">
 				<div className="row">
 					{filterProducts.map(item => (

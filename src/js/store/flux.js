@@ -1,4 +1,4 @@
-const baseAPIUrl = "https://3000-d1531b8c-11c1-4855-999a-eb2feca6dea5.ws-us02.gitpod.io";
+const baseAPIUrl = "https://3000-fa00c828-35ac-4b3a-877c-cc9d5126ddd6.ws-us02.gitpod.io/";
 //const baseAPIUrl = "https://3000-e2cdfb92-1e98-40e4-b573-9dfae6e651c6.ws-us02.gitpod.io"; // a mi me salía esta
 
 const getState = ({ getStore, getActions, setStore }) => {
