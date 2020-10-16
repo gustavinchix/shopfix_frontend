@@ -11,14 +11,16 @@ import { Card } from "../component/cardshop";
 
 export const ProductCategories = () => {
 	return (
-		<div className="products-category-container">
+		<div className="products-category-container letra">
 			<div className="row">
 				<div className="col-lg-4 col-md-4 col-sm-6">
 					<div className="card-product card-body-product-categories">
 						<img className="card-img-top" src={ShoppingWomen} alt="Products" />
 						<div className="card-body ">
 							{/* <h3 className="card-title ">Shop Women's</h3> */}
-							<Link to="/categoryone">{"Mujer"}</Link>
+							<Link className="letra" to="/categoryone">
+								{"Mujer"}
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -27,7 +29,9 @@ export const ProductCategories = () => {
 					<div className="card-product card-body-product-categories">
 						<img className="card-img-top " src={ShoppingMen} alt="Products" />
 						<div className="card-body">
-							<Link to="/categorytwo">{"Hombre"}</Link>
+							<Link className="letra" to="/categorytwo">
+								{"Hombre"}
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -38,7 +42,9 @@ export const ProductCategories = () => {
 
 						<div className="card-body">
 							{/* <h3 className="card-title">Shop Kid's</h3> */}
-							<Link to="/categorythree">{"Niños"}</Link>
+							<Link className="letra" to="/categorythree">
+								{"Niños"}
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -48,9 +54,11 @@ export const ProductCategories = () => {
 				<div className="col-lg-4 col-md-4 col-sm-6 ">
 					<div className="card-product card-body-product-categories">
 						<img className="card-img-top " src={ShoppingHome} alt="Products" />
-						<div className="card-body">{/* <h3 className="card-title">Shop Home</h3> */}</div>
-						<div className="card-country-info">
-							<Link to="/categoryfour">{"Hogar"}</Link>
+						<div className="card-body">
+							{/* <h3 className="card-title">Shop Home</h3> */}
+							<Link className="letra" to="/categoryfour">
+								{"Hogar"}
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -59,7 +67,9 @@ export const ProductCategories = () => {
 						<img className="card-img-top" src={ShoppingElectronics} alt="Products" />
 						<div className="card-body ">
 							{/* <h3 className="card-title ">Shop Electronics</h3> */}
-							<Link to="/categoryfive">{"Electrónicos"}</Link>
+							<Link className="letra" to="/categoryfive">
+								{"Electrónicos"}
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -70,7 +80,9 @@ export const ProductCategories = () => {
 
 						<div className="card-body">
 							{/* <h3 className="card-title">Shop Food</h3> */}
-							<Link to="/categorysix">{"Snacks"}</Link>
+							<Link className="letra" to="/categorysix">
+								{"Snacks"}
+							</Link>
 						</div>
 					</div>
 				</div>

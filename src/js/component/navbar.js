@@ -41,8 +41,8 @@ export const Navbar = () => {
 				<h2>Carrito de Compras</h2>
 			</div>
 			<TextField label="Nombre y Apellido" className={styles.textfield}></TextField>
-            <TextField label="Direccion" className={styles.textfield}></TextField>
-            <TextField label="Correo" className={styles.textfield}></TextField>
+			<TextField label="Direccion" className={styles.textfield}></TextField>
+			<TextField label="Correo" className={styles.textfield}></TextField>
 
 			<Button onClick={() => abrirCerrarModal()} type="button">
 				Cerrar
@@ -81,7 +81,7 @@ export const Navbar = () => {
 							<input className="form-control" type="text" placeholder="Search" aria-label="Search" />
 							<Link to="/search">
 								<button className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
-									<i className="fas fa-search"></i>
+									<i className="fas fa-search cart"></i>
 								</button>
 							</Link>
 						</div>
@@ -90,7 +90,7 @@ export const Navbar = () => {
 						</a>
 						<Link to="/Login">
 							<button className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
-								<i className="fas fa-user"></i>
+								<i className="fas fa-user cart"></i>
 							</button>
 						</Link>
 						{/* <button href="#!" className="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">
