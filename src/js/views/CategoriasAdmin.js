@@ -134,14 +134,14 @@ export const CategoriasAdmin = () => {
 											<button
 												className="btn btn-sm btn-danger float-center mx-2"
 												onClick={() => eliminarCategoria(item.id)}>
-												Eliminar
+												<i className="fa fa-trash" />
 											</button>
 										</td>
 										<td>
 											<button
 												className="btn btn-sm btn-warning float-center"
 												onClick={() => editar(item)}>
-												Editar
+												<i className="far fa-edit" />
 											</button>
 										</td>
 									</tr>
@@ -150,9 +150,9 @@ export const CategoriasAdmin = () => {
 						</Table>
 					</div>
 
-					<div className="col-lg-6">
+					<div className="col-lg-6 ">
 						<div className="card mt-4">
-							<img className="card-img-top img-fluid w-100" src={slide} alt="imagen edicion" />
+							<img className="card-img-top img-fluid w-75" src={slide} alt="imagen edicion" />
 							<br />
 							<h4 className="text-center">{modoEdicion ? "Editar Categoria" : "Agregar Categoría"}</h4>
 							<form onSubmit={modoEdicion ? editarCategoria : agregarCategoria}>
@@ -184,14 +184,11 @@ export const CategoriasAdmin = () => {
 
 								<br />
 								{modoEdicion ? (
-									<button
-										className="btn btn-warning btn-block"
-										type="button"
-										onClick={editarCategoria}>
+									<button className="btn btn-block" type="button" onClick={editarCategoria}>
 										Editar
 									</button>
 								) : (
-									<button className="btn btn-dark btn-block" type="button" onClick={guardarCategoria}>
+									<button className="btn btn-block" type="button" onClick={guardarCategoria}>
 										Agregar
 									</button>
 								)}
@@ -207,7 +204,7 @@ export const CategoriasAdmin = () => {
 				<div className="col-4" />
 				<Link to="/edicion">
 					<div className="text-left mb-3">
-						<button type="button" className="btn btn-dark btn-lg">
+						<button type="button" className="btn btn-lg">
 							Regresar
 						</button>
 					</div>
